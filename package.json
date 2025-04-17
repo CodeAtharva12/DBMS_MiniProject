@@ -1,0 +1,27 @@
+{
+  "name": "bloodhaven-app",
+  "version": "1.0.0",
+  "description": "Blood Bank Management System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend:dev": "cd frontend && npm run dev",
+    "backend:dev": "npx kill-port 5001 && cd backend && node server.js",
+    "dev": "npx kill-port 5001 8082 8080 8081 8083 && concurrently \"npm run frontend:dev\" \"npm run backend:dev\"",
+    "install:all": "npm install && cd frontend && npm install --legacy-peer-deps && cd ../backend && npm install",
+    "db:init": "cd backend && node database/init-db.js",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && node server.js"
+  },
+  "keywords": [
+    "blood-bank",
+    "healthcare",
+    "donation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "recharts": "^2.15.2"
+  }
+}

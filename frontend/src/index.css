@@ -1,0 +1,246 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 5 100% 97%;
+    --foreground: 0 0% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    --primary: 0 68% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 35 100% 75%;
+    --secondary-foreground: 35 85% 25%;
+
+    --muted: 5 100% 95%;
+    --muted-foreground: 0 0% 46%;
+
+    --accent: 5 100% 95%;
+    --accent-foreground: 0 68% 51%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 5 30% 90%;
+    --input: 5 30% 90%;
+    --ring: 0 68% 51%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 13%;
+    --foreground: 5 100% 97%;
+
+    --card: 0 0% 13%;
+    --card-foreground: 5 100% 97%;
+
+    --popover: 0 0% 13%;
+    --popover-foreground: 5 100% 97%;
+
+    --primary: 0 68% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 35 100% 75%;
+    --secondary-foreground: 35 85% 25%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 5 100% 97%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 5 100% 97%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 0 68% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-softPink text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl sm:text-3xl;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-darkGray hover:text-bloodRed transition-colors px-2 py-1 rounded-full hover:bg-softPink-light;
+  }
+  
+  .nav-link.active {
+    @apply text-bloodRed bg-softPink-light;
+  }
+  
+  .action-btn-primary {
+    @apply bg-bloodRed hover:bg-bloodRedDark text-white font-medium py-2 px-6 rounded-full transition-colors;
+  }
+  
+  .action-btn-secondary {
+    @apply bg-white text-darkGray font-medium py-2 px-6 rounded-full border border-softPink-dark hover:bg-softPink hover:border-softPink-dark transition-colors;
+  }
+
+  .action-link {
+    @apply text-darkGray hover:text-bloodRed transition-colors inline-flex items-center;
+  }
+  
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-darkGray mb-4;
+  }
+  
+  .section-description {
+    @apply text-darkGray/90 mb-6;
+  }
+
+  .stat-number {
+    @apply text-4xl sm:text-5xl font-bold text-darkGray;
+  }
+  
+  .stat-label {
+    @apply text-mediumGray text-sm mt-1;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  .page-header {
+    @apply mb-8;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold text-darkGray;
+  }
+
+  .card-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .card-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .blood-group-badge {
+    @apply inline-block px-3 py-1 bg-bloodRed text-white rounded-full text-xs font-bold;
+  }
+
+  .filter-container {
+    @apply flex flex-col md:flex-row gap-4 mb-6;
+  }
+
+  .status-valid {
+    @apply bg-healthGreen text-white px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  .status-expired {
+    @apply bg-mediumGray text-white px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  .status-pending {
+    @apply bg-amber text-darkGray px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  .status-approved {
+    @apply bg-healthGreen text-white px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  .status-rejected {
+    @apply bg-bloodRed text-white px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  /* New UI Components */
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg shadow-md;
+  }
+  
+  .blood-gradient-bg {
+    @apply bg-gradient-to-br from-softPink to-bloodRed;
+  }
+  
+  .stat-card {
+    @apply bg-white rounded-lg shadow-md border border-softPink/20 p-6 transition-all hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .dashboard-card {
+    @apply bg-white rounded-lg shadow-md border border-softPink/20 overflow-hidden;
+  }
+  
+  .dashboard-card-header {
+    @apply p-4 border-b border-softPink/10 bg-gradient-to-r from-white to-softPink/20;
+  }
+  
+  .blood-icon-bg {
+    @apply p-3 bg-softPink rounded-full;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
